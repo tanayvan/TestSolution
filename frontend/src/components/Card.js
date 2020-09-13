@@ -53,7 +53,7 @@ export default function Card({ data }) {
         <div class="card-body">
           <h5 class="card-title">{data.name}</h5>
           <p class="card-text">{data.description}</p>
-
+          <p class="card-text">{`${data.price} INR`}</p>
           {checkProduct() ? (
             <Link class="btn btn-primary" to="/cart">
               View In Cart
