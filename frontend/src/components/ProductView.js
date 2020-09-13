@@ -7,17 +7,19 @@ export default function ProductView({ data }) {
 
   const handlePlus = () => {
     console.log(data.quantity + 1);
-    updateQuantity({
-      _id: data._id,
-      quantity: data.quantity + 1,
-    })
-      .then((data) => {
-        console.log(data);
-        getCart().then((data) => {
-          setCart(data);
-        });
+    if (data.quantity < data.product.quantity) {
+      updateQuantity({
+        _id: data._id,
+        quantity: data.quantity + 1,
       })
-      .catch((err) => console.log(err));
+        .then((data) => {
+          console.log(data);
+          getCart().then((data) => {
+            setCart(data);
+          });
+        })
+        .catch((err) => console.log(err));
+    }
   };
   const handleMinus = () => {
     console.log(data.quantity + 1);
@@ -42,6 +44,7 @@ export default function ProductView({ data }) {
           <img
             src={require(`../assests/${data.product.image}`)}
             style={{ width: "100%" }}
+            className="mt-3"
           />
         </div>
         <div class="col-md-8 col-6">

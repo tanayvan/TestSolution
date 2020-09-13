@@ -14,7 +14,9 @@ export default function HomeScreen() {
     getallproducts()
       .then((data) => {
         console.log(data);
-        setData(data);
+        if (data) {
+          setData(data);
+        }
         setLoading(false);
       })
       .catch((error) => {

@@ -1,5 +1,7 @@
+const { API } = require("../backend");
+
 exports.getallproducts = () => {
-  return fetch("http://localhost:8000/api/product/getAllProduct", {
+  return fetch(`${API}/product/getAllProduct`, {
     method: "GET",
   })
     .then((response) => {
@@ -9,7 +11,7 @@ exports.getallproducts = () => {
 };
 
 exports.createProducts = (product) => {
-  return fetch("http://localhost:8000/api/product/create", {
+  return fetch(`${API}/product/create`, {
     method: "Post",
     headers: {
       Accept: "application/json",
@@ -24,7 +26,7 @@ exports.createProducts = (product) => {
 
 exports.addtoCart = (cartProduct) => {
   console.log(cartProduct);
-  return fetch("http://localhost:8000/api/addtocart", {
+  return fetch(`${API}/addtocart`, {
     method: "Post",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +41,7 @@ exports.addtoCart = (cartProduct) => {
 };
 
 exports.getCart = () => {
-  return fetch("http://localhost:8000/api/getCart", {
+  return fetch(`${API}/getCart`, {
     method: "GET",
   })
     .then((response) => {
@@ -52,7 +54,7 @@ exports.getCart = () => {
 
 exports.updateQuantity = (data) => {
   console.log(data);
-  return fetch("http://localhost:8000/api/cart/updatequantity", {
+  return fetch(`${API}/cart/updatequantity`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
