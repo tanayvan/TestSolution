@@ -11,3 +11,7 @@ body {
 .productview {
   border-bottom: "1px solid #e6ecf0;";
 }
+
+.card:hover {
+  box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+}
